@@ -59,7 +59,6 @@
 }
 
 body {
-  background-color: var(--color-white);
   color: var(--color-stone-600);
   display: flex;
   flex-direction: column;
@@ -96,13 +95,21 @@ li {
   padding-left: var(--spacing-200);
 }
 
+.recipe-image-container {
+  border: 3px sold blue;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  max-width: 375px;
+}
+
 .recipe-image {
   width: 100%;
   object-fit: contain;
 }
 
 .container {
-  /* border: 1px solid red; */
+  background-color: var(--color-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,10 +130,9 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-300);
   width: 100%;
-  /* border: 1px solid blue; */
 }
 
 .recipe-title {
@@ -212,7 +218,6 @@ li {
 }
 
 .nutrition-info {
-  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto 1fr);
@@ -236,4 +241,45 @@ li {
   grid-column: 1/-1;
   border-bottom: 1px solid var(--color-stone-150);
   margin: 0;
+}
+
+/* Shared Styles Between Tablet and Desktop sizes */
+
+@media (min-width: 620px) {
+  body {
+    background-color: var(--color-stone-100);
+    padding: 1em;
+  }
+
+  .recipe-image-container {
+    border-radius: 10px 10px 0 0;
+    padding: 1em;
+    background-color: var(--color-white);
+    padding: var(--spacing-500) var(--spacing-500) 0;
+    margin: 0;
+  }
+  .container {
+    background-color: var(--color-white);
+    border-radius: 0 0 10px 10px;
+    padding: var(--spacing-500);
+    margin-bottom: 1em;
+  }
+  .recipe-image {
+    border-radius: 10px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 620px) and (max-width: 1279px) {
+  .recipe-image-container,
+  .container {
+    max-width: 620px;
+  }
+}
+/* Desktop */
+@media (min-width: 1280px) {
+  .recipe-image-container,
+  .container {
+    max-width: 740px;
+  }
 }
